@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.main_visual{ box-shadow:0px 5px 8px #888,0px -5px 10px #bbb; margin-top:15px;}
+.main_visual,.main_image{ overflow:hidden; position:relative;}
+.main_image ul{width:9999px;overflow:hidden;position:absolute;top:0;left:0}
+.main_image li{float:left;width:100%; position:relative; }
+.main_image .banner_01 #yuerushiwan{ position:absolute; opacity:0; top:5%; left:5%;}
+.main_image .banner_01 #hangyediyi{ position:absolute; opacity:0; top:90%; left:90%;}
+.main_image .banner_01 #shanshan{ position:absolute; opacity:0.5;}
+
+div.flicking_con{position:absolute;bottom:40px; z-index:999;width:300px;height:21px;}
+div.flicking_con a{float:left; width:40px; height:40px; background:url(../images/hideicon.png) no-repeat;display:block; text-indent:-1000px}
+div.flicking_con a.on{background:url(../images/showicon.png); }
+
+#introduce h4{ text-align:center; margin:30px 0 20px 0; font-size:24px; color:#5f5f5f; }
+#introduce .intro_cell{ width:220px; float:left; text-align:center; height:120px; }
+#introduce .intro_cell figcaption{ font-size:40px; text-shadow:1px 1px 1px #5f5f5f; }
+#introduce .intro_cell p{ color:#5f5f5f; font-size:20px; }
+#introduce #cell_top{ width:440px; height:120px; margin:0 auto 20px auto; }
+#introduce #cell_bottom{ width:660px; height:120px;margin:0 auto;  }
+
+#ranking .rank_list{ width:340px; float:left;  }
+#ranking .rank_list h5{ display:block; position: relative; }
+#ranking .rank_list h5 .orange_line{ height:4px; position:absolute; top:17px; z-index:-5; width:100%; background:#fe7807;}
+#ranking .rank_list h5 .rank_title{ background:#fff; display:block; width:115px; height:40px; font-size:22px; color:#5f5f5f; margin:0 auto; text-align:center; line-height:40px; }
+#ranking .rank_list .top_list{ width:100%; height:30px; line-height:28px; color:#7c7c7c; }
+#ranking .rank_list .top_list .top_name{ text-align:left; width:80px; display:inline-block; color:#fe8a33;}
+#ranking .rank_list .top_list .top_have{ text-align:center; width:80px; display:inline-block; color:#fe8a33;}
+#ranking .rank_list .top_list .top_num{ color:#c0c0c0; text-align:center; width:28px; height:28px; display:inline-block; }
+#ranking .rank_list .top_list .first_rank{ background:url(../images/first_rank.png) no-repeat; font-size:0; }
+#ranking #top_tixian .top_list .top_name,#ranking #top_tixian .top_list .top_have{ width:110px;}
+#ranking #earnmoney{ float:left; position: relative; width:263px; height:357px;}
+#ranking #earnmoney #earnmoney_bg{ width:263px; position:absolute; bottom:0; left:0; }
+#ranking #earnmoney #earnmoney_gif_1{ width:263px; position:absolute; top:0; left:0; display:none; }
+#ranking #earnmoney #earnmoney_gif_2{ width:263px; position:absolute; top:0; left:0; }
+
+#addfans h3{ font-size:24px; color:#5f5f5f; }
+#addfans ul li .weixinlogo{  border:2px solid #fff; border-radius:15px;margin:15px 15px; float:left; width:86px; height:86px;  display:block; }
+#addfans ul li .weixinlogo:hover{ border:2px solid #fe7602; }
+#addfans ul li .weixinlogo img{ width:86px; height:86px; border-radius:15px;}

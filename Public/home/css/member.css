@@ -1,0 +1,60 @@
+@charset "utf-8";
+#content{ min-width:1030px; }
+
+#left_menu{ width:250px; height:618px; background:#cde2ff; margin:8px 30px 2px 0; padding:15px 0 0 0; float:left;border-radius:10px; }
+#left_menu #mem_logo{ width:150px; position:relative; height:130px; margin:30px auto 0 auto; border-radius:15px;  }
+#left_menu #mem_logo .level_brand{ z-index:50; width:150px; position:absolute; top:-40px; }
+#left_menu #mem_logo .touxianglogo{ width:100px; top:20px; height:100px; border-radius:15px;  position:absolute; left:25px;}
+#left_menu .menu_line{ width:175px; height:3px; display:block;}
+#left_menu #men_info{ width:180px; margin:0 auto; color:#666; }
+#left_menu #men_info li{ line-height:150%; }
+#left_menu #menu_list{ width:160px; margin:0 auto; font-size:20px;}
+#left_menu #menu_list li{ line-height:150%; background:url(../images/mem_menu_list.png) no-repeat; width:160px; height:30px; display:block; padding-left:40px; margin:10px 0; cursor:pointer; }
+#left_menu #menu_list li a{ color:#666;}
+#left_menu #menu_list #list2{ background-position:0 -50px;}
+#left_menu #menu_list #list3{ background-position:0 -105px;}
+#left_menu #menu_list #list4{ background-position:0 -160px;}
+#left_menu #menu_list #list5{ background-position:0 -216px;}
+#left_menu #menu_list #list6{ background-position:0 -271px;}
+#left_menu #menu_list #list7{ background-position:0 -327px;}
+#left_menu #menu_list #list8{ background-position:0 -388px;}
+#left_menu #menu_list #list9{ background-position:0 -443px;}
+
+#right_detail #up_level{ position:relative; overflow:hidden; }
+#right_detail #up_level #lvmove{ position:absolute; height:144px; width:871px; background:url(../images/blue_bg.png) repeat-y; top:0; right:85%; z-index:-5; opacity:1; }
+#right_detail #up_level #uplevelbotton{ position:absolute; z-index:30; top:38%; left:74%; }
+#right_detail #up_level .lvl_1,#right_detail #up_level .lvl_2,#right_detail #up_level .lvl_3{ height:66px; width:66px; display:block; position:absolute; top:31.2%; opacity:0; z-index:50; }
+#right_detail #up_level .lvl_1{ left:30.2%; }
+#right_detail #up_level .lvl_2{ left:47.2%; }
+#right_detail #up_level .lvl_3{ left:64.4%; }
+
+
+#right_detail{ float:left;}
+#right_detail #sell{ width:750px; }
+#right_detail #sell .sell_cell{ width:240px; height:110px; border:2px solid #ddd; border-radius:10px; border-top-width:8px; float:left; margin:8px 2px 10px 2px; text-align:center; }
+#right_detail #sell .sell_cell .sell_num{ margin-top:30px; color:#9e9c9d; font-size:32px; font-weight:bold; display:block; }
+#right_detail #sell #sell_box1{ border-color:rgba(181,128,174,0.5); width:736px; }
+#right_detail #sell #sell_box2{ border-color:rgba(162,188,211,0.5); }
+#right_detail #sell #sell_box3{ border-color:rgba(126,211,170,0.5); }
+#right_detail #sell #sell_box4{ border-color:rgba(249,181,168,0.5); }
+
+#myagent{ width:735px; height:338px; margin:10px 0 0 2px; border:2px solid rgba(214,218,229,0.5); border-radius:10px; border-top-width:3px; }
+#myagent h4{ color:#7c8798; width:100%; background:rgba(248,249,253,0.5); height:30px; line-height:30px; border-radius:8px 8px 0 0 ; }
+#myagent h4 span{ margin-left:25px; }
+#myagent p.agent_select{ width:243px; background:rgba(229,232,239,0.5); float:left; border:1px solid rgba(222,226,235,0.5); height:30px; cursor:pointer; line-height:30px;}
+#myagent p.onselect{ background:#fff; }
+#myagent ul.sel_1{display:block; }
+
+#myagent #level_1 em{ background:#aa89be; }
+#myagent #level_2 em{ background:#7ecff4; }
+#myagent #level_3 em{ background:#f39800; }
+#myagent .agent_select em{ display:inline-block; width:8px; height:8px; border-radius:8px; background:#ddd; margin-left:20px;  }
+#myagent .agent_select b{ margin-left:15px; font-size:12px; color:#737f94;}
+#myagent .agent_select span{ margin-left:20px; font-size:12px; color:#fff; background:url(../images/agent_select_bg.png) no-repeat; display:inline-block; width:103px; height:30px;  }
+#myagent .agent_select span i{font-style:normal; margin-left:45px; font-weight:bold;   }
+
+div.mem_cell{ width:223px; float:left; border:1px solid rgba(229,232,239,0.5); height:70px; padding:10px }
+div.mem_cell img{ width:60px; height:60px; border-radius:60px; border:2px solid #263342; }
+div.mem_cell p{ width:120px; float:right;}
+div.mem_cell p span{ font-size:12px; }
+

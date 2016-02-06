@@ -1,0 +1,55 @@
+
+      
+	   
+               <volist name="list" id="vo">
+                <div class="hufen_row c999">
+                        <div class="left hufen_info" style=" width:358px;">
+							<a class="hufen_info_img left" href="javascript:void(0);"  title="迪悠显瘦连衣裙"><img src="{$vo.wx_info|json_decode_img=###}" class="hufen_info_img_img" ></a>
+							<div class="ihufennfo_detail left" >
+								<a href="#" ><b class="cgreen">{$vo.id}&nbsp;&nbsp;排队中&nbsp;&nbsp;大家快加我！</b></a>
+								<p class="lineheight18 f12">名称：{$vo.wx_info|json_decode_nickname=###}<br />
+									来自：{$vo.wx_info|json_decode_city=###}<br />
+									留言：{$vo.wx_info|json_decode_remark=###}<br />
+									</p>
+							</div><!--ihufennfo_detail  end-->
+							<div class="clear"></div>
+                        </div><!--hufen_info  end-->
+                         <div class="left hufen_jiaweihaoyou" style=" width:258px;" ><b class="cgreen">一级{$vo.a_cnt}&nbsp;&nbsp;&nbsp;&nbsp;二级{$vo.b_cnt}&nbsp;&nbsp;&nbsp;&nbsp;三级{$vo.c_cnt}</b></div>
+                        <div class="left hufen_erweima" ><img onclick="onShow('http://n.k99p.com/Public/test/{$vo.codeimg|getCodimgName=###}');" src="http://n.k99p.com/Public/test/{$vo.codeimg|getCodimgName=###}" /></div>
+                        <div class="left hufen_jiaweihaoyou" ><input name="haoyou" type="button" onclick="onShow('http://n.k99p.com/Public/test/{$vo.codeimg|getCodimgName=###}');" value="加为好友" class="jiaweihaoyou" /></div>
+                        <div class="clear"></div>
+                </div><!--hufen_row  end-->
+				</volist>
+				
+				<div class="pages2">
+{$page}
+</div>
+           <!--J_hufen_w  end-->
+             <div id="dialog-message" class="hide" title="扫描二维码">正在加载...</div>
+              <script type="text/javascript">
+              $('#dialog-message').dialog({
+              	autoOpen: false,
+              	modal: true,
+              	width: 310,//$(window).width()-100,
+              	maxHeight:$(window).height()-100,
+              	position :["center",100],
+              	close: function() {
+                     //  alert("关闭");
+              	
+                   }
+              });
+              
+              function onShow(id)
+              {
+              	
+              	//alert(""+id);
+              	$('#dialog-message').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+              	$('#dialog-message').dialog('open');
+              	$('#dialog-message').html('<div class="tcenter" style="display:block;"><img  width="300px" height="400px"  src="'+id+'" /></div>');
+          	//	$('#dialog-message').load(id);
+          		return false;
+              }
+           
+              </script>
+            
+        

@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>互粉列表   __cfg_softname__</title>
+<meta name="keywords" content="关键字" />
+<meta name="description" content="描述" />
+
+ <link href="__LIB__/jquery-ui-bootstrap/assets/css/bootstrap.min.css" rel="stylesheet">
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/assets/css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/javascript" src="__LIB__/jqueryui/js/jquery-1.9.0.min.js"></script>
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+   <script type="text/javascript">
+   function urlToPath(URL) {
+       return URL.replace(new RegExp("http[s]?://[^/]*"), "");
+   }
+
+   
+ 
+
+   var currentHash = "";
+
+   //异步获取内容
+   function getPage(contentid,url,ishash) {
+       url="<a href='"+url+"'></a>";
+       hash=null;
+       // if(ishash){
+       //     $('#'+contentid).html('<div class="tcenter"><img src="/home/default/image/ui_loading_16x16.gif" /></div>');
+           
+       //     currentHash="/"+contentid+urlToPath($(url).attr('href').replace(/^#/, ''));
+           //alert("/"+contentid+urlToPath(currentHash));
+       //     loadPage($(url).attr('href'),contentid);
+       // }else{
+           $('#'+contentid).html('<div class="tcenter"><img src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+           $('#'+contentid).load($(url).attr('href'),function(){
+               $("#"+contentid).fadeIn('slow');
+                    });
+           // }
+   }
+   
+  
+
+</script>
+
+<link href="__PUBLIC__/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css">
+ <style type="text/css">
+ .pages2 span.current {
+color: #fff;
+border: 1px solid #b2e05d;
+background: #b2e05d;
+font-weight: bold;
+height: 16px;
+margin: 2px;
+text-align: center;
+line-height: 16px;
+padding: 0 5px;
+}
+
+.pages2  a {
+height: 16px;
+margin: 2px;
+display: inline-block;
+color: #88af3f;
+padding: 0 5px;
+text-align: center;
+line-height: 16px;
+border: 1px solid #ddd;
+}
+                                </style> 
+</head>
+
+<body>
+<!--头部-->
+<include file="Public:top"/>
+<!--头部-->
+
+<!--主体-->
+<div class="main">
+<div class="weap box f12 c666 lineheight24">
+
+	<include file="Public:user_left_top"/><!--dingdan_left  end-->
+    
+    <div class="dingdan_right left">
+    	<div class="zidongpaidui left">
+			<a href="javascript:void(0);" onclick="Pg_Index_currcount_check();"><img src="__PUBLIC__/images/hufenicon1.png" /><span class="f18">自动排队</span></a>
+		</div><!--zidongpaidui end-->
+		
+		<div class="shuaxinzhiding left">
+			<a  href="javascript:void(0);" onclick="Pg_Index_currcount_zd();"><img src="__PUBLIC__/images/hufenicon2.png" /><span class="f18">刷新置顶</span></a>
+		</div><!--shuaxinzhiding end-->
+		
+		<div class="hufen_seach left c333">
+			<span class="f18">搜索：</span><input name="keyword" id="keyword" value=<if condition="$Think.get.kw == ''">"请输入您要搜索的关键字"<else/>"{$Think.get.kw}"</if>  type="text" onkeypress="if(event.keyCode == 13) clickSearchAccount($('#keyword').val());"  onblur="if(this.value==''){this.value='请输入您要搜索的关键字'}" onfocus="if(this.value=='请输入您要搜索的关键字'){this.value=''};" class="seach_k c999"/>
+			<a href="#" onclick="search(null,$('#keyword').val())" /><img src="__PUBLIC__/images/hufenicon3.png" /></a>
+			 <script type="text/javascript">
+                                   function search(type,keyword){
+                                	   getPage('app_content', '/index.php?g=Home&m=Member&a=hufeng_fragment&p=1&kw='+keyword+'');
+                                	   return false;
+                                   }
+                                   function clickSearchAccount(keyword)
+                                   {
+                                	   getPage('app_content', '/index.php?g=Home&m=Member&a=hufeng_fragment&p=1&kw='+keyword+'');
+                                	   return false;
+                                	   
+                                   }
+                                   
+                                   </script>
+		</div><!--hufen_seach  end-->
+		<div class="clear"></div>
+       <div class="line3"></div>
+     <div class="J_hufen_w" id="app_content2">
+	   
+              
+				
+            </div>
+       <div class="J_hufen_w" id="app_content">
+	   
+              
+				
+            </div><!--J_hufen_w  end-->
+            
+        
+    </div><!--dingdan_right  end-->
+    <div class="pages2">
+ <a href="javascript:void(0)" style="float:right;font-size:18px;" onclick="GetListUsers();">加载更多</a>
+</div>
+    <div class="clear"></div>
+
+</div>
+
+
+<div class="clearfix"></div>
+
+</div>
+<div class="main-db"> </div>
+<!--主体-->
+ <script type="text/javascript">
+ var Pg_Index=0;
+ var Pg_Index_currcount=0;
+ 
+ function Pg_Index_currcount_check()
+ {
+	 
+	 if(Pg_Index_currcount<=3)
+		 {
+		   alert("你还不符合要求，还需要加"+(3-Pg_Index_currcount)+"个好友，才能操作");
+		 }else{
+				$.get("index.php/PCWeb/AddToAutoList?WX_UUID={$Think.session.WX_UUID}", function(result){
+      				Pg_Index_currcount=0;
+      			  });
+		 }
+	 
+	 
+ }
+ 
+ function Pg_Index_currcount_zd()
+ {
+	 
+	 if(Pg_Index_currcount<=3)
+		 {
+		   alert("你还不符合要求，还需要加"+(3-Pg_Index_currcount)+"个好友，才能操作");
+		 }else{
+				$.get("index.php/PCWeb/AddToTopShow?WX_UUID={$Think.session.WX_UUID}", function(result){
+      				Pg_Index_currcount=0;
+      			  });
+		 }
+	 
+	 
+ }
+ 
+ 
+ //getPage("app_content", '/index.php?g=Home&m=Member&a=hufeng_fragment',"1");
+ 
+ 
+ var Pg_Indexfy=0;
+ var Pg_Count=20;
+ 
+function GetListUsers() {
+	Pg_Indexfy++;
+	 $('#app_content2').html('<div class="tcenter"><img src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+    //   alert('GetListUsers()!');
+    $.ajax({
+        type: 'POST',
+        url:  'index.php/PCWeb/get_list_users',
+        data: {
+            pg_index: Pg_Indexfy,
+            pg_count: Pg_Count
+        },
+        success: function (response, status, xhr) {
+            if (response.error == true || response.error == false) {
+                //alert(response.data.length);
+                if (response.error == false) {
+                    UserListData = response.data;
+                    
+                    var gethtml="";
+                    $.each(UserListData,function(idx,item){ 
+                    	var parsedJson = jQuery.parseJSON(item.wx_info); 
+                    	//alert("name:"+item.name+",value:"+item.value); 
+                    	gethtml=gethtml+"<div class='hufen_row c999'>";
+                    	gethtml=gethtml+"<div class='left hufen_info'>";
+                    	gethtml=gethtml+"<a class='hufen_info_img left' href='javascript:void(0);'  title=''><img src='"+parsedJson.headimgurl+"' class='hufen_info_img_img' ></a>";
+                    	gethtml=gethtml+"<div class='ihufennfo_detail left'>";
+                    	gethtml=gethtml+"<a href='#' ><b class='cgreen'>&nbsp;&nbsp;&nbsp;&nbsp;排队中&nbsp;&nbsp;大家快加我！</b></a>";
+                    	gethtml=gethtml+"<p class='lineheight18 f12'>名称："+parsedJson.nickname+"<br />";
+                    	gethtml=gethtml+"来自："+parsedJson.city+"<br />";
+                    	gethtml=gethtml+"留言："+parsedJson.remark+"<br />";
+                    	gethtml=gethtml+"</p>";
+                    	gethtml=gethtml+"</div><!--ihufennfo_detail  end-->";
+                    	gethtml=gethtml+"<div class='clear'></div>";
+                    	gethtml=gethtml+" </div><!--hufen_info  end-->";
+                    	gethtml=gethtml+"<div class='left hufen_erweima'><img style='display:none;' onclick=onShow('http://n.k99p.com/Public/"+item.codeimg+"') src='http://n.k99p.com/Public/"+item.codeimg+"' /></div>";
+                    	gethtml=gethtml+" <div class='left hufen_jiaweihaoyou'><input name='haoyou' type='button' onclick=onShow('http://n.k99p.com/Public/"+item.codeimg+"') value='加为好友' class='jiaweihaoyou' /></div>";
+                    	gethtml=gethtml+" <div class='clear'></div>";
+                    	gethtml=gethtml+" </div>";
+                    
+
+                    	}); 
+                    $('#app_content').html(gethtml);
+                    
+                    
+                   // ProcessUserListData();
+                    Pg_Indexfy++;
+                    //window.location.reload();
+                    // alert(response.data[1].name);
+                    //  document.getElementById("AutoList").innerText = response.data;
+                    
+                    
+                    
+                    
+                    return true;
+                }
+                return false;
+            }
+            else {
+                alert("系统繁忙，请稍候再试");
+                return false;
+            }
+        },
+        beforeSend: function () {
+
+        },
+        complete: function () {
+
+            document.getElementById("tips_loadingmore").style.visibility="hidden";
+            document.getElementById("bt_loadmore").style.visibility="visible";
+
+        }
+    });
+}
+
+ 
+GetListUsers();
+ function startTime(){
+	// alert("开始");
+	// $("#currentTime").text(new Date().toLocaleString()); 
+	// getPage("app_content2", 'http://n.k99p.com/index.php/PCWeb/get_top_users?WX_UUID={$Think.session.WX_UUID}',"1");
+	
+	 Pg_Index--;
+	
+	 if(Pg_Index<=0){
+		 $('#app_content2').html('<div class="tcenter"><img src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+	 $.ajax({
+	        type: 'POST',
+	        url: '/index.php/PCWeb/get_top_users?WX_UUID={$Think.session.WX_UUID}',
+	        data: {
+	            //$sex='0',$prov='',$city='',$dist='',$indst='', $pg_index = 0, $pg_count = 20
+	            sex:'1'
+	          
+	        },
+	        success: function (response, status, xhr) {
+	            if (response.error == true || response.error == false) {
+	                //alert(response.data.length);
+	                if (response.error == false) {
+	                    if(response.data.length<=0){
+	                        alert("对不起，没有符合条件的数据!");
+	                        return false;
+	                    }
+	                    
+	                  //  alert("获取数据成功!");
+	                    UserListData = response.data;
+	                    var gethtml="";
+	                    $.each(UserListData,function(idx,item){ 
+	                    	var parsedJson = jQuery.parseJSON(item.wx_info); 
+	                    	//alert("name:"+item.name+",value:"+item.value); 
+	                    	gethtml=gethtml+"<div class='hufen_row c999'>";
+	                    	gethtml=gethtml+"<div class='left hufen_info'>";
+	                    	gethtml=gethtml+"<a class='hufen_info_img left' href='javascript:void(0);'  title=''><img src='"+parsedJson.headimgurl+"' class='hufen_info_img_img' ></a>";
+	                    	gethtml=gethtml+"<div class='ihufennfo_detail left'>";
+	                    	gethtml=gethtml+"<a href='#' ><b class='cgreen'>&nbsp;&nbsp;<span style='color:red;' id='span"+idx+"'>20</span>&nbsp;&nbsp;排队中&nbsp;&nbsp;大家快加我！</b></a>";
+	                    	gethtml=gethtml+"<p class='lineheight18 f12'>名称："+parsedJson.nickname+"<br />";
+	                    	gethtml=gethtml+"来自："+parsedJson.city+"<br />";
+	                    	gethtml=gethtml+"留言："+parsedJson.remark+"<br />";
+	                    	gethtml=gethtml+"</p>";
+	                    	gethtml=gethtml+"</div><!--ihufennfo_detail  end-->";
+	                    	gethtml=gethtml+"<div class='clear'></div>";
+	                    	gethtml=gethtml+" </div><!--hufen_info  end-->";
+	                    	gethtml=gethtml+"<div class='left hufen_erweima'><img style='display:none;' onclick=onShow('http://n.k99p.com/Public/"+item.codeimg+"') src='http://n.k99p.com/Public/"+item.codeimg+"' /></div>";
+	                    	gethtml=gethtml+" <div class='left hufen_jiaweihaoyou'><input name='haoyou' type='button' onclick=onShow('http://n.k99p.com/Public/"+item.codeimg+"') value='加为好友' class='jiaweihaoyou' /></div>";
+	                    	gethtml=gethtml+" <div class='clear'></div>";
+	                    	gethtml=gethtml+" </div>";
+	                    
+
+	                    	}); 
+	                    $('#app_content2').html(gethtml);
+	                  //  ProcessUserListData();
+	                  Pg_Index=20;
+	                    //window.location.reload();
+	                    // alert(response.data[1].name);
+	                    //  document.getElementById("AutoList").innerText = response.data;
+	                    return true;
+	                }
+	                return false;
+	            }
+	            else {
+	                alert("系统繁忙，请稍候再试");
+	                return false;
+	            }
+	        },
+	        beforeSend: function () {
+
+	        },
+	        complete: function () {
+
+	          //  document.getElementById("tips_loadingmore").style.visibility="hidden";
+	          //  document.getElementById("bt_loadmore").style.visibility="visible";
+
+	        }
+	    });
+	 }
+	 $("#span0").html(Pg_Index+"");
+	 $("#span1").html(Pg_Index+"");
+	 $("#span2").html(Pg_Index+"");
+	setTimeout('startTime()',1000); 
+ }
+ startTime();
+ 
+ </script>
+
+
+ <div id="dialog-message" class="hide" onclick="$('#dialog-message').dialog('close');" title="扫描二维码">正在加载...</div>
+              <script type="text/javascript">
+              $('#dialog-message').dialog({
+              	autoOpen: false,
+              	modal: true,
+              	width: 310,//$(window).width()-100,
+              	maxHeight:$(window).height()-100,
+              	position :["center",100],
+              	close: function() {
+                     //  alert("关闭");
+              		Pg_Index_currcount++;
+              		
+              		
+                   }
+              });
+              
+              function onShow(id)
+              {
+              	
+              	//alert(""+id);
+              	$('#dialog-message').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+              	$('#dialog-message').dialog('open');
+              	$('#dialog-message').html('<div class="tcenter" style="display:block;"><img  width="300px" height="400px"  src="'+id+'" /></div>');
+          	//	$('#dialog-message').load(id);
+          		return false;
+              }
+              
+              
+              
+           
+              </script>
+<!--底部-->
+<include file="Public:bottom"/>
+<!--底部-->
+
+</body>
+</html>

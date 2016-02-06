@@ -1,0 +1,45 @@
+	<header style=<if condition="$Think.session.member == '1'"><else/></if>>
+    	<h1>
+        <a href="/index.php?g=Home&m=Index&a=index">
+      	  <img src="__PUBLIC__/images/logo.png">
+        </a>
+        </h1>
+        
+    	<nav style="width:340px;">
+        	<ul>
+            	<li><a href="/index.php?g=Home&m=Index&a=index">首页</a></li>
+            	<li><a <if condition="$Think.session.uid == ''">onclick="return onShow();"<else/>href="/index.php?g=Home&m=Member&a=hufeng"</if> >互粉</a></li>
+            	
+                <!--
+                	<li><a href="/index.php?g=Home&m=Index&a=help">帮助</a></li>
+            	-->
+                
+                <if condition="$Think.session.uid == ''">
+            	<li><a href="javascript:void(0);" onclick="return onShow();">登录</a></li>
+            	<else/>
+            	<li><a href="/index.php?g=Home&m=Member&a=index" >用户中心</a></li>
+                <li><a  href="/index.php?g=Home&m=Member&a=logout" >退出</a></li>
+            	</if>
+            </ul>
+        </nav>
+<!--       
+        <div id="liucheng">  
+      
+        	<img src="__PUBLIC__/images/liucheng.png">
+       		<span id="lc_1">关注金粉丝</span>
+        	<span id="lc_2">购买支付</span>
+        	<span id="lc_3">会员登录</span>
+            <span id="lc_4"></span>
+            
+            <div id="qrkingfans">
+            	<span>请通过微信扫描二维码关注</span>
+            	<p>(点击关闭)</p>
+                <img src="__PUBLIC__/images/qrcode_for_kingfans.jpg">
+            </div>
+
+
+        </div>
+        
+-->   
+
+ </header>

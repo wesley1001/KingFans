@@ -1,0 +1,340 @@
+﻿/*@charset "gb2312";*/
+/**
+ * $hack :ie 6 _  \ ie7 *+ \  ie6,ie7 *  \  ie7,firefox !important ie9, \9
+*/
+
+ html{-webkit-text-size-adjust:none; /*解决chrome浏览器下字体不能小于12px*/}
+ body{ color:#625F53; font-family:"微软雅黑",Verdana, Arial, Helvetica, sans-serif;}
+ * {}
+a{outline:none; text-decoration:none;} a:hover{ text-decoration:underline;}
+html{zoom:1;}html *{outline:0;zoom:1;} html button::-moz-focus-inner{border-color:transparent!important;} 
+body{overflow-x: hidden; font-size:14px;} body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;} table{/*border-collapse:collapse;border-spacing:0;*/} fieldset,a img{border:0;} address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;} li{list-style:none;} caption,th{text-align:left;} h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;} q:before,q:after{content:'';}
+input[type="submit"], input[type="reset"], input[type="button"], button { -webkit-appearance: none; /*去掉苹果的默认UI来渲染按钮*/} em,i{ font-style:normal;}
+select{font-family:"微软雅黑";}
+
+
+
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }.clearfix {display:block;}.clear{ clear:both;}/* 清除浮动*/
+.colwrapper { overflow:hidden; zoom:1 /*for ie*/; margin:5px auto; }/* 高度自适应 */ 
+.strong{ font-weight: bold;} .left{ float: left;display: inline;} .right{ float: right;display: inline;} .center{ margin:0 auto; text-align:center;}
+.show{ display:block; visibility:visible;}.hide{ display: none; visibility:hidden;}
+.block{ display:block;} .inline{ display:inline;}
+.transparent{filter:alpha(opacity=50); -moz-opacity:0.5;/** Firefox 3.5即将原生支持opacity属性，所以本条属性只在Firefox3以下版本有效 ***/ -khtml-opacity: 0.5; opacity: 0.5; } .break{ word-wrap:break-word;overflow:hidden; /*word-break:break-all;*/}
+
+.tal{ text-align:left} .tar{ text-align:right;}
+
+/*文字两侧对齐*/
+.justify {
+	text-align:justify;
+	text-justify:distribute-all-lines;/*ie6-8*/
+	text-align-last:justify;/* ie9*/
+	-moz-text-align-last:justify;/*ff*/
+	-webkit-text-align-last:justify;/*chrome 20+*/
+}
+
+.toe{
+	/*超出省略号*/
+	 word-break:keep-all;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){/* chrome*/
+	.justify:after{
+		content:".";
+		display: inline-block;
+		width:100%;
+		overflow:hidden;
+		height:0;
+	}
+}
+
+
+/* 兼容IE6的定位属性fixed，固定不动样式 */
+.fixed{
+	position:fixed; 
+	clip:rect(0 100% 100% 0);
+	_position:absolute;
+	
+	/* 底部 */
+	 top:0px;
+	left:0px;
+	_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);
+	/*_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);*/
+	
+	/* 左侧 */
+	/*left:0px;*/
+	/*_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);*/
+	/*_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);*/
+}
+/* 解决固定层在IE6下闪的问题 */
+*html{
+	background-image:url(about:blank);
+	background-attachment:fixed;
+}
+
+
+/*png图片ie6下透明滤镜实现写法*/
+.pngimg{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='images/x.png');}
+
+/**
+ +------------------------------------------------------------------------------
+ * FCK 兼容解决方案
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+em{ font-style:italic !important;} strike{ text-decoration:line-through !important;} strong{ font-weight:bold !important; text-indent:0;} u{ text-decoration:underline !important;}
+
+/**
+ +------------------------------------------------------------------------------
+ * 表单样式
+ +------------------------------------------------------------------------------
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整体颜色总汇
+ +------------------------------------------------------------------------------
+ * @codex  颜色:使用颜色的名称或者16进制代码,如 
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.ff8600,ff86aa a{ color:#ff8600;}
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整字体大小
+ +------------------------------------------------------------------------------
+ * @codex   字体大小,直接使用"font+字体大小"作为名称,如
+ * @package  ORG
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+.font14px{ font-size:14px;}
+.font9pt{ font-size:9pt;}
+/*自定义字体*/
+/* @font-face {  font-family: danley;  src: url('../font/danley.ttf');  }  .danley {  font-family: danley; } */
+
+
+/**
+ +------------------------------------------------------------------------------
+ * 网站整布局命名规范
+ +------------------------------------------------------------------------------
+ * @codex   id和class命名采用该版块的英文单词或组合命名 如:newRelease
+ * @package  ORG
+ * @subpackage  RBAC
+ +------------------------------------------------------------------------------
+ */
+body{ position:relative; color:#333; font-family:"微软雅黑"; font-size:14px}
+a{ color:#333; text-decoration:none; font-size:14px}
+a:hover{ color:#333; text-decoration:none}
+.weap{ width:1000px; margin:0 auto;}
+
+.top{ height:48px; background:#40c7ad}
+.top .bd{ height:48px;}
+.menu{ height:48px; line-height:48px;}
+.menu li{ float:left}
+.menu li a{ display:block; float:left; padding:0 27px; color:#fff; font-size:14px;}
+.menu li a:hover{ background:#47d8bc}
+
+.banner{ height:355px; border-bottom:1px solid #c4c4c4; width:100%; position:relative}
+.banner .lb{height:355px; width:100%; position:relative}
+.banner .lb .bd,.banner .lb .bd ul,.banner .lb .bd ul li,.banner .lb .bd ul li a{ display:block; height:100%; width:100%}
+.banner .lb .hd{ position:absolute; bottom:20px; width:100%; text-align:center; z-index:99}
+.banner .lb .hd ul li{ width:10px; height:10px; display:inline-block;*display:inline;*zoom:1; background:url(../images/d.png) no-repeat 0 0; margin:0 5px; overflow:hidden; text-indent:-99px; cursor:pointer}
+.banner .lb  .hd ul li.on{ background:url(../images/d.png) no-repeat 0 -10px;}
+
+.form{ width:335px; height:340px; background:#fff; border:1px solid #e2e2e2; position:absolute;top:50%; margin-top:-170px; right:10px; left:50%; margin-left:160px; z-index:100}
+.form .hd{ height:52px; border-bottom:1px solid #e2e2e2}
+.form .hd ul{ padding:0 10px; }
+.form .hd li{ line-height:52px; float:left; width:50%; text-align:center; cursor:pointer; color:#6e6e6e}
+.form .hd li.on{ border-bottom:1px solid #848484}
+.form .bd{ padding:20px;padding-top:40px;}
+.form .dr-1 li{ height:38px; margin-bottom:15px; position:relative}
+.form .dr-1 li.mm-s i{ width:13px; height:17px; display:block; background:url(../images/mm-s.gif) no-repeat; position:absolute; left:240px;top:10px;}
+.form .dr-1 li .ip{ padding:5px; height:26px; line-height:26px; width:250px; color:#6e6e6e}
+.form .dr-1 li .btn{ color:#fff; border:none; width:97px; height:35px; background:url(../images/btn.gif) no-repeat center; cursor:pointer}
+.dr-2 { text-align:center;}
+.dr-2 h3{ font-family:"微软雅黑"; height:40px; color:#999; margin-bottom:20px}
+
+.ts{ text-align:right; color:#257ca1; padding-top:58px;}
+.ts a{ color:#257ca1; padding:0 5px; font-size:12px}
+.ts a:hover{ text-decoration:underline}
+
+.main{ width:1056px; margin:0 auto;background:url(../images/main-bg.gif) repeat-y top center; }
+.main-db{width:1056px; margin:0 auto; height:12px; background:url(../images/main-dbg.gif) no-repeat top center; margin-bottom:50px;}
+
+.main .box{ padding:50px 0}
+
+.gg{ overflow:hidden; margin-bottom:30px;}
+.gg ul{ width:1060px}
+.gg ul li{ float:left; width:227px; height:154px; margin-right:35px;}
+
+.xg-link { overflow:hidden; margin-bottom:40px;}
+.xg-link .hd{ font-size:27px; margin-bottom:26px; height:35px; text-align:center; color:#fb9f00; background:url(../images/t-bg.png) no-repeat center}
+.xg-link li{ width:116px; float:left; margin-right:59px; text-align:center; color:#fff; height:114px; background:url(../images/link-bg.gif) no-repeat center}
+.xg-link li .img{ padding-top:15px; height:73px; overflow:hidden}
+.xg-link li a p{ color:#fff}
+.xg-link ul { width:1070px}
+
+.reach{ height:30px; background:#40c7ad; padding:9px; width:982px; margin-bottom:38px;}
+.serch-form{ width:234px; background:#fff; height:30px; position:relative}
+.serch-form .ip{ width:224px; padding:5px; background:#fff; height:20px; border:none; position:relative}
+.serch-form .btn{ display:block; position:absolute; width:24px; height:30px; border:none; background:url(../images/btn-2.png) no-repeat center; cursor:pointer; right:10px; top:0; z-index:99}
+.reach .nav li{ float:left; line-height:30px; height:30px; font-size:18px; color:#026a56; float:left}
+.reach .nav li a{  font-size:18px; color:#026a56; float:left; padding:0 16px}
+.reach .nav li.x{ width:2px; background:url(../images/x.gif) no-repeat center; height:30px}
+
+.ewm{ background:#fcfafb; padding:5px; overflow:hidden}
+.ewm li{ float:left;}
+.ewm li.b{ width:264px; padding-top:15px; padding-left:15px; height:264px; background:url(../images/b-bg.png) no-repeat center; margin-right:45px}
+.ewm li.b img{ width:245px; height:245px;}
+.ewm ul{ width:1040px}
+.ewm li.x{ width:134px; padding-top:5px; padding-left:5px; height:136px; background:url(../images/x-bg.png) no-repeat center; margin-right:35px}
+.ewm li.x img{ width:120px; height:120px;}
+
+.foot{ height:196px; background:#e5f9eb}
+.foot .bd{ padding-top:50px; text-align:center}
+.foot .bd p{ line-height:40px;}
+.foot .bd .p-1 a{ padding: 0 10px;}
+.foot .bd .p-1 a:hover{ text-decoration:underline}
+.foot .bd .link a{ padding: 0 10px;}
+.foot .bd .link img{ vertical-align:middle}
+
+
+/*2015-08-06*/
+.left{ float:left;}
+.right{ float:right;}
+.clear{ clear:both;}
+.bqgreed{ background:#edf9f8;}
+.bgreen{ background:#41c6ad;}
+.borange{ background:#fa9f00;}
+.cfff{ color:#fff;}
+.corange{ color:#fa9f00;}
+.c333{ color:#333;}
+.c666{ color:#666;}
+.c999{ color:#999;}
+.cgreen{ color:#40c7ad;}
+.borderbottom{border-bottom:1px solid #ddd; }
+
+.f18{font-size:18px;}
+.f28{font-size:28px;}
+.f14{font-size:14px;}
+.f12{ font-size:12px;}
+
+.user_left{ width:520px;}
+.user_right{ width:430px;}
+.user_left_top{ background:url(../images/user_top.jpg) no-repeat; padding:18px;}
+.user_left_top_img{ width:184px; height:184px; border-radius:92px;}
+.user_left_top_img img{ width:184px; height:184px;}
+.user_left_top_nr{ width:280px; line-height:36px; padding-top:15px;}
+.bianhao{ border-radius:78px; padding:6px 20px; }
+.bianhao1{border-radius:78px; padding:3px 10px;}
+.user_xishoue{ text-align:center; padding:30px;}
+.user_xishoue img,.user_yjze img,.mingxi img,.shuaxinzhiding img,.zidongpaidui img,.hufen_seach img{vertical-align: middle; margin-right:10px;}
+
+.user_yjze{ padding:25px 0;}
+.user_yjze span{ width:50%; text-align:center;}
+.mingxi{ padding:30px;}
+
+.user_right{ padding:38px 18px 28px 18px;}
+.line2{ height:2px; background:#dce9e8; margin-top:14px;}
+.user_icon li {
+  width:140px;
+  text-align: center;
+  float: left;
+  height:115px;
+  border-bottom: 1px solid #ddd;
+  border-right:1px solid #ddd; 
+  padding-top:25px;
+}
+.user_icon li img {
+  width: 50px;
+}
+.user_icon li b {
+  display: block;
+  line-height: 36px;
+}
+.user_icon li.borderr0{ border-right:0;}
+
+.dingdan_left{ width:178px; border:1px solid #ddd; background:#f9f9f9; border-right:0; padding-bottom: 106px;margin-bottom: 20px;}
+.dingdan_right{ width:778px;  border:1px solid #ddd;  padding:10px 20px;}
+.dingdan_top{ padding:20px 8px; }
+.dingdan_top_img{ width:60px; height:60px; border-radius:30px;}
+.dingdan_top_img img{ width:60px; height:60px;}
+.dingdan_top_right{ width:92px;margin-top:5px;}
+.lineheight24{ line-height:24px;}
+.lineheight18{ line-height:18px;}
+.dingdan_xse,.dingdan_yj{ width:50%; text-align:center;}
+.dingdan_yjxse,.dingdan_ze,.kstd{ padding:10px 0;}
+.dingdan_ze,.kstd{ text-align:center;}
+.dingdanlb_list li{ float:left; background:url(../images/dot1.png) no-repeat center left; line-height:36px; width:100%; text-indent:40px; margin-top:3px;}
+.dingdanlb_list li.acrent{ background:url(../images/dingdanlb.jpg) no-repeat; }
+.filter_short{display: inline-block; margin-left:20px; padding:20px;}
+.line3{ height:1px; background:#ddd;}
+
+.orders_head{ font-weight:bold; width:100%; margin-top:10px;}
+.order_cell{ float:left;text-align: center;}
+.order_info{ width:240px;}
+.order_money{ width:95px;}
+.order_zhifu{ width:95px;}
+.order_status{ width:85px;}
+.order_kdhongsi{ width:100px;}
+.order_kddanhao{ width:135px;}
+
+.J_order_w{ margin-top:20px;}
+.order_title{ margin-bottom:10px;}
+.deal_info a img{ width:81px; height:72px;}
+.img_w{ width:100px;}
+.info_detail{ width:126px; text-align:left;}
+.order_row{ padding:21px 0; border-bottom:1px dashed #ddd;}
+
+.zidongpaidui,.shuaxinzhiding{ width:220px; height:48px; line-height:48px; }
+.hufen_seach,.hufen_seach input{ font-family:"微软雅黑";}
+.hufen_seach{ width:310px; line-height:48px;}
+.hufen_seach .seach_k{ text-indent:15px; width:200px;}
+.seach_k{ border:1px solid #ddd; line-height:32px;}
+.seachbutton{ border:0; background:url(../images/hufenicon3.png) no-repeat; height:32px; width:32px;}
+
+.hufen_erweima{ width:121px;}
+.hufen_erweima img{ width:81px; height:81px;}
+.hufen_jiaweihaoyou{ width:140px; margin-top:45px;}
+.hufen_jiaweihaoyou .jiaweihaoyou{ background:#41c6ad; border-radius:3px; padding:10px 30px; color:#fff; font-size:14px; border:0;}
+.hufen_info{ width:508px;}
+.hufen_info_img{width:110px; height:81px; margin-right:10px;}
+.hufen_info_img_img{ width:110px; height:81px; border-radius:6px;}
+.hufen_row{ padding:20px 0; border-bottom:1px dashed #ddd;}
+.ihufennfo_detail{ width:300px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

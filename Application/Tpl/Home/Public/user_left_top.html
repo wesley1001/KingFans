@@ -1,0 +1,64 @@
+<div class="dingdan_left left">
+        <div class="dingdan_top borderbottom">
+        	<div class="dingdan_top_left left">
+        	<a href="/index.php?g=Home&m=Member&a=index">
+        	<img src="{$Think.session.wx_info.headimgurl}" class="dingdan_top_img" />
+        	</a>
+        	</div><!--dingdan_top_left  end-->
+            <div class="dingdan_top_right right f14">昵称：{$Think.session.wx_info.nickname}<br />族长：<if condition="$Think.session.member == '1'">是<else/>否</if></div><!--dingdan_top_right  end-->
+            <div class="clear"></div>
+            <p class="f14">关注时间：<if condition="$Think.session.wx_info.subscribe_time == ''"> {$Think.session.time}<else/>{$Think.session.wx_info.subscribe_time|date="Y-m-d",###}</if></p>
+            <p class="f14">金粉ID：<b class="bianhao1 bblue cfff">{$Think.session.id}</b></p>
+        </div><!--dingdan_top  end-->
+        
+        <div class="dingdan_yjxse borderbottom">
+        	<div class="left dingdan_xse f14"><span class=" cblue f16">
+        	<b>{$Think.session.all_buy_price}</b></span><br />销售额</div>
+            <div class="left dingdan_yj f14"><span class="cblue f16"><b>{$Think.session.all_price}</b></span><br />佣金</div>
+            <div class="clear"></div>
+        </div><!--dingdan_yjxse  end-->
+        
+        <div class="dingdan_ze borderbottom f14">
+        	可提现：&nbsp;&nbsp;<span class="cblue f16"><b>{$Think.session.price}</b></span> 元 
+        </div><!--dingdan_ze  end-->
+        
+        <div class="f18 c333 kstd">快捷通道</div>
+        
+        <ul class="dingdanlb_list">
+        	<li  <if condition="$Think.session.an == 'order'">class="acrent"<else/></if> ><a href="/index.php?g=Home&m=Member&a=order" >我的订单</a></li>
+        	<li  <if condition="$Think.session.an == 'hufeng'">class="acrent"<else/></if> ><a href="/index.php?g=Home&m=Member&a=hufeng" >互粉</a></li>
+         
+            <li><a href="javascript:void(0);" onclick="onShowwdewm('http://hmwx.k99p.com/index.php?g=app&m=PC_Web&a=GetUserQRCode&kf_id={$Think.session.uid}');">我的二维码</a></li>
+            <li <if condition="$Think.session.an  == 'family'">class="acrent"<else/></if>><a href="/index.php?g=Home&m=Member&a=family">家庭成员</a></li>
+          
+            <div class="clear"></div>
+        </ul><!--dingdanlb_list  end-->
+        
+    </div>
+    <div id="dialog-messageewm" class="hide" onclick="$('#dialog-messageewm').dialog('close');" title="我的二维码">正在加载...</div>
+      <script type="text/javascript">
+              $('#dialog-messageewm').dialog({
+              	autoOpen: false,
+              	modal: true,
+              	width: 410,//$(window).width()-100,
+              	maxHeight:$(window).height()-100,
+              	position :["center",10],
+              	close: function() {
+                     //  alert("关闭");
+              	
+                   }
+              });
+              
+              function onShowwdewm(id)
+              {
+              	
+              	//alert(""+id);
+              	$('#dialog-messageewm').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+              	$('#dialog-messageewm').dialog('open');
+              	$('#dialog-messageewm').html('<div class="tcenter" style="display:block;"><img  width="300px" height="400px"  src="'+id+'" /></div>');
+          	//	$('#dialog-message').load(id);
+          		return false;
+              }
+              
+              </script>
+    

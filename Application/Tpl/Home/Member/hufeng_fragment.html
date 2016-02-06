@@ -1,0 +1,29 @@
+
+      
+	   
+               <volist name="list" id="vo">
+                <div class="hufen_row c999">
+                        <div class="left hufen_info">
+							<a class="hufen_info_img left" href="javascript:void(0);"  title="迪悠显瘦连衣裙"><img src="{$vo.wx_info|json_decode_img=###}" class="hufen_info_img_img" ></a>
+							<div class="ihufennfo_detail left">
+								<a href="#" ><b class="cgreen">{$vo.id}&nbsp;&nbsp;排队中&nbsp;&nbsp;大家快加我！</b></a>
+								<p class="lineheight18 f12">名称：{$vo.wx_info|json_decode_nickname=###}<br />
+									来自：{$vo.wx_info|json_decode_city=###}<br />
+									留言：{$vo.wx_info|json_decode_remark=###}<br />
+									</p>
+							</div><!--ihufennfo_detail  end-->
+							<div class="clear"></div>
+                        </div><!--hufen_info  end-->
+                        <div class="left hufen_erweima"><img style='display:none;' onclick="onShow('http://n.k99p.com/Public/test/{$vo.codeimg|getCodimgName=###}');" src="http://n.k99p.com/Public/test/{$vo.codeimg|getCodimgName=###}" /></div>
+                        <div class="left hufen_jiaweihaoyou"><input name="haoyou" type="button" onclick="onShow('http://n.k99p.com/Public/test/{$vo.codeimg|getCodimgName=###}');" value="加为好友" class="jiaweihaoyou" /></div>
+                        <div class="clear"></div>
+                </div><!--hufen_row  end-->
+				</volist>
+				
+				<div class="pages2">
+{$page}
+</div>
+           <!--J_hufen_w  end-->
+            
+            
+        

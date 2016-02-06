@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户中心  __cfg_softname__</title>
+<meta name="keywords" content="金粉丝">
+<meta name="description" content="金粉丝">
+
+<link href="__LIB__/jquery-ui-bootstrap/assets/css/bootstrap.min.css" rel="stylesheet">
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">
+ul, ol {
+padding: 0;
+margin: 0;
+}
+img {
+max-width: 100%;
+width: auto;
+height:  auto;
+vertical-align: middle;
+border: 0;
+-ms-interpolation-mode: bicubic;
+}
+</style>
+
+<link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/css/member.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" language="javascript" src="__PUBLIC__/javascript/jquery-1.8.3.js"></script>
+<script type="text/javascript" language="javascript" src="__PUBLIC__/javascript/jquery.touchSlider.js"></script>
+<script type="text/javascript" language="javascript" src="__PUBLIC__/javascript/jquery.event.drag-1.5.min.js"></script>
+
+
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" language="javascript">
+	$(function(){
+		win_wid = $(window).width();	
+		if(win_wid > 1000){	
+			$("#left_menu").css({"margin-left":((win_wid-1000)/2)+"px"});
+		}else{
+			$("#left_menu").css({"margin-left":"0"});
+		}
+	})
+</script>
+
+</head>
+<body >
+
+	<include file="Public:top"/>
+<include file="Public:left_menu"/>
+
+
+	<section id="right_detail" style=<if condition="$Think.session.member == '1'"><else/>"display:none;"</if>>
+        
+        <section >    
+            <div id="sell">
+            	<p id="sell_box1" class="sell_cell">
+                	<span class="sell_num">{$Think.session.all_buy_price}</span>
+            		<span class="sell_name">销售额</span>        
+                </p>
+                
+            	<p id="sell_box2" class="sell_cell">
+                	<span class="sell_num">{$Think.session.all_price}</span>
+            		<span class="sell_name">佣金</span>        
+                </p>
+            	
+                <p id="sell_box3" class="sell_cell">
+                	<span class="sell_num">{$all_count_buy}</span>
+            		<span class="sell_name">总额</span>        
+                </p>
+            	
+                <p id="sell_box4" class="sell_cell">
+                	<span class="sell_num">{$Think.session.price}</span>
+            		<span class="sell_name">可提现</span>        
+                </p>
+
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div id="myagent">
+            	<h4>&nbsp;&nbsp;&nbsp;我的团队</h4>
+            	
+                <p id="level_1" class="agent_select onselect">
+                	<em></em>
+                    <b>一级代理</b>
+                    <span><i>{$users.a_cnt}</i></span>
+                </p>
+
+                <p id="level_2" class="agent_select">
+                	<em></em>
+                    <b>二级代理</b>
+                    <span><i>{$users.b_cnt}</i></span>
+                </p>
+
+                <p id="level_3" class="agent_select">
+                	<em></em>
+                    <b>三级代理</b>
+                    <span><i>{$users.c_cnt}</i></span>
+                </p>
+            	
+            <div class="clear"></div>
+            	<ul>
+            	
+            	<volist name="familylist" id="vo">
+<li>
+                    	<div class="mem_cell">
+                        	 <img src="{$vo.wx_info|json_decode_img=###}">	
+                        	 <p>
+                  	            	<span>金粉ID：{$vo.id}</span><br>
+                                    <span>昵称：{$vo.wx_info|json_decode_nickname=###}</span><br>
+                                    <span>团队人数：{$vo.a_cnt+$vo.b_cnt+$vo.c_cnt}</span>
+                             </p>	 
+                        </div>
+                    </li>
+           </volist>
+          
+                
+                	
+                
+                
+                
+                
+                </ul>
+                
+                
+                
+            
+            
+            
+            
+            
+                    
+            </div>
+            
+         </section>   
+            
+            
+            
+            
+    </section>
+
+	<div class="clear"></div>
+
+    <include file="Public:bottom"/>  
+
+
+</body>
+</html>

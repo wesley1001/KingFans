@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>__cfg_softname__首页 </title>
+<meta name="keywords" content="金粉丝 微信 微商 微商推广 交友 互粉 加粉 加粉神器">
+<meta name="description" content="金粉丝，是国内领先的正规微商交友加粉平台">
+
+	        <link href="__LIB__/jquery-ui-bootstrap/assets/css/bootstrap.min.css" rel="stylesheet">
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/assets/css/font-awesome.min.css" rel="stylesheet" />
+			<link rel="shortcut icon" href="/favicon.ico"/>
+
+<link rel="bookmark" href="/favicon.ico"/>
+<style type="text/css">
+ul, ol {
+padding: 0;
+margin: 0;
+}
+img {
+max-width: 100%;
+width: auto;
+height:  auto;
+vertical-align: middle;
+border: 0;
+-ms-interpolation-mode: bicubic;
+}
+a{ outline:0; border:0; }
+</style>
+<link href="__PUBLIC__/css/index.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="__PUBLIC__/javascript/jquery-1.8.3.js"></script>
+<script type="text/javascript" language="javascript" src="__PUBLIC__/javascript/jquery.touchSlider.js"></script>
+<script type="text/javascript" language="javascript" src="__PUBLIC__/javascript/jquery.event.drag-1.5.min.js">
+</script>
+<script type="text/javascript" language="javascript">
+		window.erweima_click = 0;
+
+		function adjust(win_wid){
+			// $(".section_box").css({"margin-left":((win_wid-960)/2)+"px"});
+			$(".main_image ul li span img").css({"width":win_wid+"px"});
+			$(".main_visual,.main_image").css({"height":(win_wid/1.846)+"px"});
+			$("div.flicking_con").css({"left":((win_wid-(120))/2)+"px"});
+	
+			$(".banner_01 #yuerushiwan").css({"width":(523/(960/win_wid))+"px"});
+			$(".banner_01 #hangyediyi").css({"width":(884/(960/win_wid))+"px"});
+		}
+
+$(function(){
+			win_wid = $(window).width();
+			adjust(win_wid);	
+			var ishongbaomove = 0;
+			
+		$(window).resize(function(){ // 改变窗口时调整banner效果
+			win_wid = $(window).width();
+			adjust(win_wid);	
+		})
+		setTimeout(function(){
+			 $("#qrkingfans").animate({"opacity":1},300);
+			setTimeout(function(){
+				 $("#qrkingfans").animate({"opacity":0},300); 
+			 },8000);
+		 },7000);
+		 
+		
+		$(".banner_01 #shanshan").css({"width":(960/(960/win_wid))+"px"});
+		$("#lc_4").mouseover(function(){ $("#qrkingfans").animate({"opacity":1},300); })
+		$("#lc_4").mouseout(function(){ $("#qrkingfans").animate({"opacity":0},300); })
+		$("#qrkingfans").click(function(){ $(this).animate({"opacity":0},0); })
+
+
+	    //$(document).click(function(){  
+		//	if(window.erweima_click == 1){	
+		//		// $('#dialog-message2').dialog('close');
+		//		window.erweima_click = 0;				
+		//	}
+		//});  
+
+	$(window).load(function(){	
+		/**红包移动**/
+		$(window).scroll(function(){
+			if(ishongbaomove == 0){
+				//  当滚动条拉到窗口下边缘超出红包线150px时生效
+				if($(window).scrollTop()-150 >= ($("#ranking").position().top-$(window).height())){
+					$("#ranking #earnmoney #earnmoney_gif_2").hide();
+					$("#ranking #earnmoney #earnmoney_gif_1").show();
+					ishongbaomove  = 1;
+				}
+			}
+		})
+
+		/**第一张banner效果**/
+		win_wid = $(window).width();
+		$(".banner_01 #yuerushiwan").animate({"top":"14%","left":"24%","opacity":1},1500);
+		$(".banner_01 #hangyediyi").animate({"top":"80%","left":"4%","opacity":1},2500);
+
+	    // "width":1.1*(960/(960/win_wid))+"px","top":"-5%","left":"-5%",
+	    // "width":960/(960/win_wid)+"px","top":"0","left":"0",
+		$(".banner_01 #shanshan").animate({"opacity":0.4},500);
+		$(".banner_01 #shanshan").animate({"opacity":1},500);
+		$(".banner_01 #shanshan").animate({"opacity":0.4},500);
+		$(".banner_01 #shanshan").animate({"opacity":1},500);
+			
+		
+		/**banner滚动效果**/		
+		$(".main_image").touchSlider({
+			flexible : true,
+			speed : 500,
+			btn_prev : $("#btn_prev"),
+			btn_next : $("#btn_next"),
+			paging : $(".flicking_con a"),
+			counter : function (e){
+				$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+			}
+		});
+		
+		$(".main_image").bind("mousedown", function() {	$dragBln = false; });
+		$(".main_image").bind("dragstart", function() {	$dragBln = true; });
+		timer = setInterval(function(){	$("#btn_next").click(); }, 5000);
+		$(".main_image").bind("touchstart",function(){	clearInterval(timer); }).bind("touchend", 
+		function(){
+		timer = setInterval(function(){ $("#btn_next").click(); }, 5000); });
+		
+		
+		
+		/**移动二维码会出现**/
+		$("#lc_1").mouseover(function(){ $("#qrkingfans").animate({"opacity":1},300); })
+		$("#lc_1").mouseout(function(){ $("#qrkingfans").animate({"opacity":0},300); })
+		
+	}) // window.load
+
+})
+
+
+</script>
+
+</head>
+<body>
+
+<include file="Public:top_index"/>
+
+<div class="main_visual">
+	<div class="flicking_con">
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+	<div class="main_image">
+		<ul>
+			<a target="_blank" href="__PUBLIC__/images/index_banner_click_01.jpg">
+                <li class="banner_01">
+                        <img id="shanshan" src="__PUBLIC__/images/banner01_txt03.png">
+                        <img id="yuerushiwan" src="__PUBLIC__/images/banner01_txt01.png">
+                        <img id="hangyediyi" src="__PUBLIC__/images/banner01_txt02.png">
+                    <span>
+                        <img src="__PUBLIC__/images/banner01.png" />
+                    </span>
+                </li>
+            </a>
+
+			<a href="#"><li><span><img src="__PUBLIC__/images/banner02.jpg" /></span></li></a>
+            
+			<a href="#"><li><span><img src="__PUBLIC__/images/banner03.jpg" /></span></li></a>
+		
+        </ul>
+		<a href="javascript:;" id="btn_prev"></a>
+		<a href="javascript:;" id="btn_next"></a>
+    </div>
+</div>
+
+  <div class="clear"></div>
+	
+    <section id="addfans" style="height:280px; width:1100px; margin:20px auto; ">
+    	<h3 style="text-align:center; color:#fe7807; ">他们都在用金粉丝，快加他们，赶紧加入我们吧</h3>
+        <ul id="app_content">
+         
+          
+        	
+        </ul>
+        
+          <script type="text/javascript">
+   function urlToPath(URL) {
+       return URL.replace(new RegExp("http[s]?://[^/]*"), "");
+   }
+
+   
+ 
+
+   var currentHash = "";
+
+   //异步获取内容
+   function getPage(contentid,url,ishash) {
+       url="<a href='"+url+"'></a>";
+       hash=null;
+       // if(ishash){
+       //     $('#'+contentid).html('<div class="tcenter"><img src="/home/default/image/ui_loading_16x16.gif" /></div>');
+           
+       //     currentHash="/"+contentid+urlToPath($(url).attr('href').replace(/^#/, ''));
+           //alert("/"+contentid+urlToPath(currentHash));
+       //     loadPage($(url).attr('href'),contentid);
+       // }else{
+          // $('#'+contentid).html('<div class="tcenter"><img src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+           $('#'+contentid).load($(url).attr('href'),function(){
+               $("#"+contentid).fadeIn('slow');
+                    });
+           // }
+   }
+   
+  // getPage("app_content", '/index.php?g=Home&m=Index&a=index_getdata',"1");
+   function startTime(){
+	   getPage("app_content", '/index.php?g=Home&m=Index&a=index_getdata',"1");
+	   setTimeout('startTime()',20000); 
+   }
+   startTime();
+
+</script>
+       
+    </section>    
+
+	<section  id="introduce" class="section_box" style="display:none;">
+    		
+            <h4>是什么让金粉丝坐拥行业第一，拥有86万活跃用户?</h4>
+    
+    <section id="cell_top">    
+        <figure class="intro_cell" id="cell_1">   
+            <figcaption>18年</figcaption>
+            <p>18年专业程序员优化</p>
+            <p>全自动加粉系统</p>
+            <p>加粉，一气呵成</p>
+        </figure>	
+                     
+        <figure class="intro_cell" id="cell_2">   
+            <figcaption>高提成</figcaption>
+            <p>金粉丝成长系统</p>
+            <p>Growth System</p>
+            <p>代理越多，每笔提成越高</p>
+        </figure>	
+     </section>
+        
+		<div class="clear"></div>
+     
+    <section id="cell_bottom">    
+        <figure class="intro_cell" id="cell_3">   
+            <figcaption>25元</figcaption>
+            <p>25元全网最实惠价格</p>
+            <p>真诚帮助渴望成功的你</p>
+        </figure>	
+
+        <figure class="intro_cell" id="cell_4">   
+            <figcaption>专人带</figcaption>
+            <p>详细视频说明书</p>
+            <p>全程导师教学</p>
+        </figure>	
+            
+        <figure class="intro_cell" id="cell_5">   
+            <figcaption>奖励足</figcaption>
+            <p>不定时官方活动</p>
+            <p>保时捷，玛莎随便送</p>
+        </figure>	
+     </section>
+    </section>
+    
+    
+    
+    
+    <section id="ranking" style="width:1100px;" class="section_box">
+    	<div class="rank_list" id="top_jiazu">
+    		<h5>
+            	<span class="rank_title">家族榜</span>
+            	<p class="orange_line"></p>
+            </h5>
+            
+            <ul>
+            	<li class="top_list">
+                	<span class="top_num first_rank">0</span>
+                	<span class="top_name">金粉丝导师</span> 拥有团队成员
+                	<span class="top_have">8526</span> 名
+                </li>
+            	<li class="top_list">
+                	<span class="top_num">2</span>
+                	<span class="top_name">黄总</span> 拥有团队成员
+                	<span class="top_have">7956</span> 名
+                </li>
+            	<li class="top_list">
+                	<span class="top_num">3</span>
+                	<span class="top_name">吴家大少</span> 拥有团队成员
+                	<span class="top_have">6561</span> 名
+                </li>
+            	<li class="top_list">
+                	<span class="top_num">4</span>
+                	<span class="top_name">R哥仔</span> 拥有团队成员
+                	<span class="top_have">6261</span> 名
+                </li>
+            	<li class="top_list">
+                	<span class="top_num">5</span>
+                	<span class="top_name">钊少</span> 拥有团队成员
+                	<span class="top_have">5956</span> 名
+                </li>
+            	<li class="top_list">
+                	<span class="top_num">6</span>
+                	<span class="top_name">华哥</span> 拥有团队成员
+                	<span class="top_have">4856</span> 名
+                </li>
+
+            	<li class="top_list">
+                	<span class="top_num">7</span>
+                	<span class="top_name">莱莱</span> 拥有团队成员
+                	<span class="top_have">4741</span> 名
+                </li>
+
+            	<li class="top_list">
+                	<span class="top_num">8</span>
+                	<span class="top_name">然仔</span> 拥有团队成员
+                	<span class="top_have">3541</span> 名
+                </li>
+
+            	<li class="top_list">
+                	<span class="top_num">9</span>
+                	<span class="top_name">坦克车</span> 拥有团队成员
+                	<span class="top_have">3354</span> 名
+                </li>
+
+            	<li class="top_list">
+                	<span class="top_num">10</span>
+                	<span class="top_name">命中遇见你</span> 拥有团队成员
+                	<span class="top_have">3281</span> 名
+                </li>
+
+ 
+            </ul>
+            
+                
+        </div>
+
+   		<a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzIwOTA0Mjg5Mw==&mid=207989084&idx=1&sn=15ae23d593647d5fa57146150aa7762d&scene=0#rd">
+            <div style="margin-left:73px;" id="earnmoney">
+                    <img id="earnmoney_gif_1" src="__PUBLIC__/images/earnmoney01.gif">
+                    <img id="earnmoney_gif_2" src="__PUBLIC__/images/earnmoney02.png">
+                    <img id="earnmoney_bg" src="__PUBLIC__/images/earnmoney.png">
+            </div>
+        </a>
+        
+        
+        <div style="float:right; " class="rank_list" id="top_tixian">
+    		<h5>
+            	<span class="rank_title">提现榜</span>
+            	<p class="orange_line"></p>
+            </h5>
+            
+            <ul>
+            	<li class="top_list">
+                	<span class="top_name">金粉丝导师</span> 提现了
+                	<span class="top_have">3520</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">吴家大少</span> 提现了
+                	<span class="top_have">2986</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">黄总</span> 提现了
+                	<span class="top_have">2756</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">钊少</span> 提现了
+                	<span class="top_have">2685</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">华哥</span> 提现了
+                	<span class="top_have">2563</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">坦克车</span> 提现了
+                	<span class="top_have">2468</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">阳光灿烂</span> 提现了
+                	<span class="top_have">2363</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">莱莱</span> 提现了
+                	<span class="top_have">2263</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">光少</span> 提现了
+                	<span class="top_have">2135</span> 大米
+                </li>
+            	<li class="top_list">
+                	<span class="top_name">R哥仔</span> 提现了
+                	<span class="top_have">2036</span> 大米
+                </li>
+            </ul>
+        </div>
+    
+    </section>
+    
+  
+
+    <div class="clear"></div>
+
+   <include file="Public:bottom"/> 
+          	
+
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+
+
+<div id="dialog-message" class="hide" onclick="$('#dialog-message').dialog('close');" title="请扫描登录，谢谢">正在加载...</div>
+<div id="dialog-message2" class="hide" onclick="$('#dialog-message2').dialog('close');"  title="亲，快扫码加我！">正在加载...</div>
+<div id="dialog-messagegz" class="hide" onclick="$('#dialog-messagegz').dialog('close');"  title="请扫描关注，不关注不能登录，谢谢">正在加载...</div>
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<style type="text/css">
+button{ outline:0; border:0; }
+</style>
+              <script type="text/javascript">
+              var obj = new WxLogin({
+                  id:"dialog-message", 
+                  appid: "wx7a69e5661221ff2b", 
+                  scope: "snsapi_login", 
+                  redirect_uri: encodeURI("http://www.k99p.com/wxlogin.php"),
+                  state: "<?php echo session_id() ?>#wechat_redirect",
+                  style: "white",
+                  href: ""
+                });
+              
+              $('#dialog-message').dialog({
+              	autoOpen: false,
+				draggable: false,
+             	modal: true,
+              	width: 350,//$(window).width()-100,
+              	maxHeight:$(window).height()-80,
+              	position :["center",10],
+              	close: function() {
+                      // alert("关闭1");
+              	
+                   }
+              });
+              
+              $('#dialog-message2').dialog({
+                	autoOpen: false,
+					draggable: false,
+                	modal: true,
+                	width: 350,//$(window).width()-100,
+                	maxHeight:$(window).height()-80,
+                	position :["center",100],
+                	close: function() {
+                       //  alert("关闭2");
+                	
+                     }
+                });
+              
+              $('#dialog-messagegz').dialog({
+              	autoOpen: false,
+				draggable: false,
+              	modal: true,
+              	width: 350,//$(window).width()-100,
+              	maxHeight:$(window).height()-80,
+              	position :["center",100],
+              	close: function() {
+                     //  alert("关闭3");
+              	
+                   }
+              });
+              
+              function onShow()
+              {
+              	
+              	//alert(""+id);
+             
+              	$('#dialog-message').dialog('open');
+              	
+          		
+          		return false;
+              }
+              
+              function onShowfs(url)
+              {
+              	
+              	// alert(""+id);
+				// window.erweima_click = 1;
+				// alert(window.erweima_click);
+				
+                $('#dialog-message2').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+              	$('#dialog-message2').dialog('open');
+            	$('#dialog-message2').html('<div class="tcenter" style="display:block;"><img  width="300px" height="400px"  src="'+url+'" /></div>');
+          		
+          		return false;
+              }
+              
+              function onShowgz()
+              {
+              	
+              	//alert(""+id);
+                $('#dialog-messagegz').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+              	$('#dialog-messagegz').dialog('open');
+            	$('#dialog-messagegz').html('<div class="tcenter" style="display:block;"><img  width="300px" height="400px"  src="__PUBLIC__/images/qrcode_for_gh_6bfaf821e9b6_344.jpg" /></div>');
+          		
+          		return false;
+              }
+              <if condition="$onShowgz == '1'"> onShowgz();<else/></if>
+            
+			
+			
+				
+  
+		
+              </script>
+</body>
+</html>

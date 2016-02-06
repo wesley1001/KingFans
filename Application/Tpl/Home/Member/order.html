@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>__cfg_softname__ 我的订单</title>
+
+<meta name="keywords" content="金粉丝 微信 微商 微商推广 交友 互粉 加粉 加粉神器">
+<meta name="description" content="金粉丝，是国内领先的正规微商交友加粉平台">
+<link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css">
+
+ <link href="__LIB__/jquery-ui-bootstrap/assets/css/bootstrap.min.css" rel="stylesheet">
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+            <link type="text/css" href="__LIB__/jquery-ui-bootstrap/assets/css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/javascript" src="__LIB__/jqueryui/js/jquery-1.9.0.min.js"></script>
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="__LIB__/jquery-ui-bootstrap/assets/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+   <script type="text/javascript">
+   function urlToPath(URL) {
+       return URL.replace(new RegExp("http[s]?://[^/]*"), "");
+   }
+
+   
+ 
+
+   var currentHash = "";
+
+   //异步获取内容
+   function getPage(contentid,url,ishash) {
+       url="<a href='"+url+"'></a>";
+       hash=null;
+       // if(ishash){
+       //     $('#'+contentid).html('<div class="tcenter"><img src="/home/default/image/ui_loading_16x16.gif" /></div>');
+           
+       //     currentHash="/"+contentid+urlToPath($(url).attr('href').replace(/^#/, ''));
+           //alert("/"+contentid+urlToPath(currentHash));
+       //     loadPage($(url).attr('href'),contentid);
+       // }else{
+           $('#'+contentid).html('<div class="tcenter"><img src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+           $('#'+contentid).load($(url).attr('href'),function(){
+               $("#"+contentid).fadeIn('slow');
+                    });
+           // }
+   }
+   
+  
+
+</script>
+<link href="__PUBLIC__/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<!--头部-->
+<include file="Public:top"/>
+<!--头部-->
+
+<!--主体-->
+<div class="main">
+<div class="weap box f12 c666 lineheight24">
+
+	<include file="Public:user_left_top"/><!--dingdan_left  end-->
+    
+    <div class="dingdan_right left">
+    	<select class="J-orders-filter orders-filter ui-select-small" id="yui_3_16_0_1_1438845365278_932">
+              <option value="all" data-url="" data-ga="" selected="selected">全部状态</option>
+           
+              <option value="unpaid" data-url="" data-ga="">未付款</option>
+              <option value="used" data-url="" data-ga="">已使用</option>
+              <option value="expired" data-url="" data-ga="">已过期</option>
+       </select>
+       <div class="filter_short f14">快捷提示：您有&nbsp;&nbsp;<span class="corange"><b>0</b></span>&nbsp;&nbsp;个订单待付款！</div>
+       <div class="line3"></div>
+       
+       <div class="dingdanorder_list f12">
+            <div class="orders_head">
+                <div class="order_cell order_info">基本信息</div>
+                <div class="order_cell order_money">订单金额</div>
+                <div class="order_cell order_zhifu">支付状态</div>
+                <div class="order_cell order_status">支付方式</div>
+                <div class="order_cell order_kdhongsi">产品数量</div>
+                <div class="order_cell order_kddanhao">备注</div>
+                <div class="clear"></div>
+            </div><!--orders_head  end-->
+              <volist name="list" id="vo">
+            <div class="J_order_w">
+                <div class="order_title cgreen borderbottom"><b>订单编号：<a href="#" class="cgreen">{$vo.orderid}</a></b>
+                    <img style="display:none;" src="/Public/home/images/shanchu2.jpg" height="22" width="48" class="right" />
+                    <div class="clear"></div>
+                </div><!--order_title  end-->
+                <div class="order_row c999">
+                        <div class="order_cell order_info">
+                            <div class="deal_info cf">
+                                <a   class="img_w left" href="#"  title="迪悠显瘦连衣裙"><img    src="/Public/home/images/12.jpg" ></a>
+                                <div class="info_detail left">
+                                    <a href="#" ><b class="c333">{$vo.order_info}</b></a>
+                                    <p>下单时间：<br />{$vo.time}</p>
+                                </div><!--info_detail  end-->
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="order_cell order_money"><span class="cgreen">￥{$vo.cartdata|json_decode_spprice=###}</span></div>
+                        <div class="order_cell order_zhifu"><if condition="$vo.pay_status == '1'">已经支付<else/>去支付<br />（已经支付？）</if></div>
+                        <div class="order_cell order_status">{$vo.pay_style}</div> 
+                        <div class="order_cell order_kdhongsi">{$vo.cartdata|json_decode_spnum=###}</div>
+                        <div class="order_cell order_kddanhao">{$vo.note}</div>
+                        <div class="clear"></div>
+                </div><!--order_row  end-->
+                                
+                <!--order_row  end-->
+                
+            </div><!--J_order_w  end-->
+            </volist>
+          <!--J_order_w  end-->
+
+        </div><!--dingdanorder_list  end-->
+        
+        
+        
+        
+    </div><!--dingdan_right  end-->
+    
+    <div class="clear"></div>
+
+</div>
+
+
+<div class="clearfix"></div>
+
+</div>
+<div class="main-db"> </div>
+<!--主体-->
+
+
+<!--底部-->
+<include file="Public:bottom"/>
+<!--底部-->
+
+</body>
+</html>

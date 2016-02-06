@@ -1,0 +1,91 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+<style type="text/css">
+.padding20{ padding:1rem;}
+.f48{ font-size:14;}
+.f34{ font-size:14;}
+.zhifubao_btn,.weixin_btn{ background:#0099ff; border-radius:6px; width:100%;line-height:3rem; font-size:2rem; padding:0.4rem 0; text-align:center; margin-bottom:1.2rem;}
+.weixin_btn{ background:#41c6ad;}
+.w50{ width:50px;}
+button{ outline:0; border:0; }
+.jfs_num p,.tishi p,.jfs_num p span,.tishi p span{ font-size:1.1rem; line-height:2.0rem; }
+button{ outline:0; border:0; }
+.ui-dialog{ width:800px; }
+</style>
+<script type="text/javascript">
+var issend=0;
+function onSend(type){
+	
+	$("#typezf").val(type);
+	/*
+		 if($("#wxid").val()=='')
+		 {
+		 alert("微信号不能为空，谢谢");
+		 $("#wxid").focus();
+		   return false;
+		 }
+		 
+		 if($("#phone").val()=='')
+		 {
+		 alert("手机号不能为空，谢谢");
+		 $("#phone").focus();
+		   return false;
+		 }
+	*/
+	 
+	 if(issend==1)
+	 {
+	 alert("请不要重复提交，耐心等候，谢谢");
+	 return false;
+	 }
+	 
+	 $("#form1").submit();
+	 
+	 // $('#dialog-message').dialog('close');
+	 return true;
+	
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+<form action="/index.php?g=Home&m=Member&a=m_zf_zfb_begin" id="form1" target="_blank" name="form1" method="post">
+<input type="hidden" id="typezf" name="typezf" value="" />
+<div class="newweixin wrapper">
+	
+        <div class="top_banner">
+            <img style="width:100%;" src="/api/wxpayapi/example/alipaybg.png">
+        </div>
+        
+    <!-- top_banner end -->
+    
+    <div class="jfs_num ">
+    	<p class="c666 f34"><span class="cred f48">金粉丝</span>&nbsp;会员服务共计：<span class="corange"><b>￥25.00</b></span>&nbsp;元</p>
+    </div><!--jfs_num  end-->
+  
+    <div class="tishi  f34 c666">
+    	<p><span class="cred">提示：</span>&nbsp;<span class="corange">以下联系信息您可以根据需要选填【<a style='color:orangered;font-weight:bold;'>不填也没有关系</a>】。</span>如果付款或金粉丝使用上遇到的问题我们会安排正在使用金粉丝的百万用户来一对一协助您！</p>
+    </div><!--tishi  end-->
+  
+    <div class="haoma ">
+     <br>  <p class="f34 c666"><span>微信号：</span><input value="" name="wxid" id="wxid" type="text" placeholder="请填您的微信号码(选填)"> </p>
+    <br>   <p  class="f34 c666"><span>手机号：</span><input value="" name="phone" id="phone" type="text" placeholder="请填写您的联系号码(选填)"> </p>
+     </div><!--haoma  end-->
+     
+     <div class="anniu ">
+     	<div class="zhifubao_btn"><a style="font-size:25px; color:#fff; text-decoration:none;" href="javascript:void(0);" onclick="javascript:onSend('zfb');" class="cfff"><img src="/Public/home/m/images/zhifubao_icon.png"  class="w50">&nbsp;支付宝支付</a></div>
+        <div class="weixin_btn"><a style="font-size:25px; color:#fff; text-decoration:none;" href="javascript:void(0);" onclick="javascript:onSend('wx');" class="cfff"><img src="/Public/home/m/images/weixin_icon.png" class="w50">&nbsp;微信支付</a></div>
+     </div><!--anniu  end-->
+</div><!-- wrapper end-->
+</form>
+
+</body>

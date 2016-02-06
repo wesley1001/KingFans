@@ -1,0 +1,96 @@
+	<section id="left_menu" style=<if condition="$Think.session.member == '1'"><else/>"display:none;"</if>>
+
+
+    		<div id="mem_logo">
+            	<img class="level_brand" src="__PUBLIC__/images/level_01.png">
+            	<img class="touxianglogo" src="{$Think.session.wx_info.headimgurl}">
+            </div>
+      		
+            <p class="menu_line"></p>      
+        	
+            <ul id="men_info">
+            	<li>金粉ID：{$Think.session.id}</li>
+            	<li>昵称：{$Think.session.wx_info.nickname}</li>
+            	<li>族长：<if condition="$Think.session.member == '1'">是<else/>否</if></li>
+            	<li>关注时间：<if condition="$Think.session.wx_info.subscribe_time == ''"> {$Think.session.time}<else/>{$Think.session.wx_info.subscribe_time|date="Y-m-d",###}</if></li>
+		   </ul>
+            <p class="menu_line"></p>      
+			
+            <ul id="menu_list">
+				<li id="list1"><a  <if condition="$Think.session.member == '1'">onclick="alert('您已经是族长，不能再次购买，谢谢 ');"<else/>onclick="onShow();"</if>  >立即购买</a></li>
+				<li id="list2"><a href="/index.php?g=Home&m=Member&a=order">我的订单</a></li>
+				<li style="display:none;" id="list3"><a href="#">申请提现</a></li>
+				<li style="display:none;" id="list4"><a href="#">我的米粉</a></li>
+				<li id="list5"><a href="/index.php?g=Home&m=Member&a=family">家庭成员</a></li>
+				<li id="list6"><a href="#">家族推广</a></li>
+				<li id="list7"><a onclick="onShowwdewm('http://hmwx.k99p.com/index.php?g=app&m=PC_Web&a=GetUserQRCode&kf_id={$Think.session.uid}');">我的二维码</a></li>
+				<li id="list8"><a target="_blank" href="http://n.k99p.com/index.php/WXGroup/QRListShow_PCWeb">领取微信群</a></li>
+				<li id="list9"><a target="_blank" href="http://v.youku.com/v_show/id_XMTI4NDcxNDQyMA==.html?tpa=dW5pb25faWQ9MTAzMjUyXzEwMDAwMV8wMV8wMQ&qq-pf-to=pcqq.c2c">推广视频</a></li>
+				<li id="list9"><a target="_blank" href="http://v.youku.com/v_show/id_XMTI4NDcxNDQwMA==.html?tpa=dW5pb25faWQ9MTAzMjUyXzEwMDAwMV8wMV8wMQ">加粉视频</a></li>
+            </ul>        
+            
+    </section>
+    <div id="dialog-message" class="hide" title="您还不是会员，请购买" >正在加载...</div>
+     <div id="dialog-messageewm" class="hide" onclick="$('#dialog-messageewm').dialog('close');" title="我的二维码">正在加载...</div>
+      <div id="dialog-messagesmzf" class="hide" title="请微信扫码支付，谢谢" >正在加载...</div>
+      <script type="text/javascript">
+              $('#dialog-messageewm').dialog({
+              	autoOpen: false,
+              	modal: true,
+              	width: 410,//$(window).width()-100,
+              	Height:$(window).height(),
+              	position :["center",10],
+              	close: function() {
+                     //  alert("关闭");
+              	
+                   }
+              });
+              
+              function onShowwdewm(id)
+              {
+              	
+              	//alert(""+id);
+              	$('#dialog-messageewm').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+              	$('#dialog-messageewm').dialog('open');
+              	$('#dialog-messageewm').html('<div class="tcenter" style="display:block;"><img  width="300px" height="400px"  src="'+id+'" /></div>');
+          	//	$('#dialog-message').load(id);
+          		return false;
+              }
+              
+              $('#dialog-message').dialog({
+                	autoOpen: false,
+                	modal: true,
+                	width: 410,//$(window).width()-100,
+                	maxHeight:$(window).height()-100,
+                	position :["center",10],
+                	close: function() {
+                       //  alert("关闭");
+                	
+                     }
+                });
+                
+                function onShow()
+                {
+                	
+                	//alert(""+id);
+                	$('#dialog-message').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+                	$('#dialog-message').dialog('open');
+                	
+            		$('#dialog-message').load('/index.php?g=Home&m=Member&a=m_zf');
+            		return false;
+                }
+                <if condition="$Think.session.member == '1'"><else/> onShow();</if>
+              
+                
+                function onShowsmzf()
+                {
+                	
+                	//alert(""+id);
+                	$('#dialog-message').html('<div class="tcenter" style="display:block;"><img width="100px" height="100px" src="__PUBLIC__/images/ui_loading_16x16.gif" /></div>');
+                	$('#dialog-message').dialog('open');
+                	
+            		$('#dialog-message').load('/index.php?g=Home&m=Member&a=m_zf_zfb_begin');
+            		return false;
+                }
+              
+              </script>
